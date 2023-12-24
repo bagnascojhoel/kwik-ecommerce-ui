@@ -6,6 +6,7 @@ function assertTrue(value: boolean, message: string): void {
 
 function assertSameRowLength(
   length: number,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value: any[][],
   message: string,
 ): void {

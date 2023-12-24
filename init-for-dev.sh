@@ -20,6 +20,10 @@ fi
 echo "Copying scripts from '$source_dir' to '$destination_dir'"
 cp -v "$source_dir"/* "$destination_dir"/
 
+# Make all scripts executable
+echo "Making scripts executable"
+chmod +x "$destination_dir"/*
+
 # Check if the copy operation was successful
 if [ $? -eq 0 ]; then
   echo "Scripts successfully copied to '$destination_dir'"
