@@ -1,1 +1,1 @@
-export * from "./FilteredTable";
+export * from "./FilteredTable"

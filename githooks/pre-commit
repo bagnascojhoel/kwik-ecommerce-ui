@@ -1,0 +1,5 @@
+#!/bin/sh
+
+npm run pretty
+
+npm run lint || exit $?

@@ -1,6 +1,6 @@
-import { createBrowserRouter } from "react-router-dom";
-import { ProductScreen } from "./product";
-import {DevelopmentScreen} from './routing/DevelopmentScreen'
+import {createBrowserRouter} from "react-router-dom"
+import {ProductScreen} from "./product"
+import {DevelopmentScreen} from "./routing/DevelopmentScreen"
 
 const router = createBrowserRouter([
   {
@@ -13,8 +13,8 @@ const router = createBrowserRouter([
   },
   {
     path: "/dev",
-    element: <DevelopmentScreen/>
-  }
-]);
+    element: <DevelopmentScreen />,
+  },
+])
 
-export { router };
+export {router}

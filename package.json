@@ -2,7 +2,8 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "lint": "lerna run lint"
+    "lint": "lerna run lint",
+    "pretty": "lerna run pretty"
   },
   "workspaces": [
     "apps/*",
