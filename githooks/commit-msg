@@ -2,7 +2,7 @@
 
 # Define the allowed types and scopes for conventional commits.
 types="build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test"
-scopes="common|api-client|management|customer"
+scopes="common|kwik-api-client|management"
 
 # Create a regex for a conventional commit.
 conventional_commit_regex="^(${types})(\((${scopes})\))!?: .+$"

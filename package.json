@@ -1,15 +1,21 @@
 {
-  "name": "root",
-  "private": true,
-  "scripts": {
-    "lint": "lerna run lint",
-    "pretty": "lerna run pretty"
-  },
+  "name": "kwik-ui",
+  "version": "0.0.0",
   "workspaces": [
     "apps/*",
     "libs/*"
   ],
+  "scripts": {
+    "mock-api": "npx mockoon-cli start --data ../kwik-api.mockoon.json",
+    "dev-management": "npm run dev -w management-ui",
+    "lint": "lerna run lint",
+    "pretty": "lerna run pretty",
+    "build": "lerna run build"
+  },
+  "author": "Jhoel Bagnasco",
+  "license": "ISC",
   "devDependencies": {
-    "lerna": "^8.0.1"
+    "@mockoon/cli": "^6.1.0",
+    "lerna": "^8.0.2"
   }
 }

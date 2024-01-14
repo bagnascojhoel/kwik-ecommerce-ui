@@ -1,0 +1,11 @@
+{
+  "api-product-state-shown": "Shown",
+
+  "app-title-area-product": "Kwik - Product Management",
+  "app-title-area-home": "Kwik Ecommerce Manager",
+
+  "app-route-label-products": "Product Management",
+
+  "app-area-home-intro-title": "Welcome back, {}!",
+  "app-area-product-intro-title": "Product Management"
+}
