@@ -13,4 +13,4 @@ function assertSameRowLength(
   value.forEach(row => assertTrue(row.length === length, message))
 }
 
-export {assertTrue, assertSameRowLength}
+export { assertTrue, assertSameRowLength }

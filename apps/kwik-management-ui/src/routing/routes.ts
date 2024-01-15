@@ -1,8 +1,8 @@
 export type Route = string
 
 export const ROUTES = {
-  HOME: "/",
+  HOME: '/',
   PRODUCTS: {
-    ROOT: "/products",
+    ROOT: '/products',
   },
 }
