@@ -3,10 +3,16 @@ name: Workflow for UI
 on:
   push:
     branches: ["main"]
-    paths: ["front/**"]
 
   workflow_dispatch:
 
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.KWIK_AGENT_AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.KWIK_AGENT_AWS_ACCESS_KEY_SECRET }}
+  AWS_REGION: ${{ secrets.AWS_S3_REGION }}
+  AWS_S3_BUCKET_MANAGEMENT_UI: ${{ secrets.AWS_S3_BUCKET }}
+  AWS_CLOUDFRONT_DIST_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+  
 permissions:
   contents: read
   pages: write
@@ -17,11 +23,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  pipeline:
+    name: Build and Deploy
     runs-on: ubuntu-latest
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.KWIK_AGENT_AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.KWIK_AGENT_AWS_ACCESS_KEY_SECRET }}
+    environment: production
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -35,15 +40,15 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to AWS
-        uses: reggionick/s3-deploy@v4
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          folder: dist
-          bucket: ${{ secrets.AWS_S3_BUCKET }}
-          bucket-region: ${{ secrets.AWS_S3_REGION }}
-          dist-id: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
-          invalidation: /
-          delete-removed: true
-          no-cache: true
-          private: true
-          files-to-include: '{.*/**,**}'
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Deploy Management UI to S3
+        run: aws s3 sync ./apps/kwik-management-ui/dist s3://${{ env.AWS_S3_BUCKET_MANAGEMENT_UI}}/ --delete
+
+      - name: Invalidate dashboard cloudfront
+        run: aws cloudfront create-invalidation --distribution-id ${{ env.AWS_CLOUDFRONT_DIST_ID }} --paths "/*"
