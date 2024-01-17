@@ -24,7 +24,7 @@ concurrency:
 
 jobs:
   pipeline:
-    name: Build and Deploy
+    name: Build all and deploy management-ui
     runs-on: ubuntu-latest
     environment: production
     steps:
@@ -48,7 +48,7 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Deploy Management UI to S3
-        run: aws s3 sync ./apps/kwik-management-ui/dist s3://${{ env.AWS_S3_BUCKET_MANAGEMENT_UI}}/ --delete
+        run: aws s3 sync ./apps/management-ui/dist s3://${{ env.AWS_S3_BUCKET_MANAGEMENT_UI}}/ --delete
 
       - name: Invalidate dashboard cloudfront
         run: aws cloudfront create-invalidation --distribution-id ${{ env.AWS_CLOUDFRONT_DIST_ID }} --paths "/*"
