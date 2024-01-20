@@ -20,7 +20,7 @@ export function HomeScreen() {
   return (
     <>
       <PageTitle
-        title={l10n('app-area-home-intro-title', 'Bianca Gomes')}
+        title={l10n('app-area-home-intro-title', '<username>')}
         disableGoBack
       />
 
