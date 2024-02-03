@@ -1,17 +1,18 @@
-name: Workflow for UI
+name: Production Pipeline
 
 on:
   push:
     branches: ["main"]
+    paths: ["apps", "libs", "package.json", "package-lock.json"]
 
   workflow_dispatch:
 
 env:
-  AWS_ACCESS_KEY_ID: ${{ secrets.KWIK_AGENT_AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.KWIK_AGENT_AWS_ACCESS_KEY_SECRET }}
-  AWS_REGION: ${{ secrets.AWS_S3_REGION }}
-  AWS_S3_BUCKET_MANAGEMENT_UI: ${{ secrets.AWS_S3_BUCKET }}
-  AWS_CLOUDFRONT_DIST_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+  KWIK_AWS_ACCESS_KEY_ID: ${{ secrets.KWIK_AGENT_AWS_ACCESS_KEY_ID }}
+  KWIK_AWS_SECRET_ACCESS_KEY: ${{ secrets.KWIK_AGENT_AWS_ACCESS_KEY_SECRET }}
+  KWIK_AWS_S3_REGION: ${{ secrets.AWS_S3_REGION }}
+  MANAGEMENT_AWS_S3_BUCKET: ${{ secrets.MANAGEMENT_AWS_S3_BUCKET }}
+  MANAGEMENT_AWS_CLOUDFRONT_DIST: ${{ secrets.MANAGEMENT_AWS_CLOUDFRONT_DIST }}
   
 permissions:
   contents: read
@@ -43,12 +44,12 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.AWS_REGION }}
+          aws-access-key-id: ${{ env.KWIK_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.KWIK_AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.KWIK_AWS_S3_REGION }}
 
       - name: Deploy Management UI to S3
-        run: aws s3 sync ./apps/management-ui/dist s3://${{ env.AWS_S3_BUCKET_MANAGEMENT_UI}}/ --delete
+        run: aws s3 sync ./apps/management-ui/dist s3://${{env.MANAGEMENT_AWS_S3_BUCKET}}/ --delete
 
       - name: Invalidate dashboard cloudfront
-        run: aws cloudfront create-invalidation --distribution-id ${{ env.AWS_CLOUDFRONT_DIST_ID }} --paths "/*"
+        run: aws cloudfront create-invalidation --distribution-id ${{env.MANAGEMENT_AWS_CLOUDFRONT_DIST}} --paths "/*"
