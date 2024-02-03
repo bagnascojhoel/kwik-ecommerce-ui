@@ -3,7 +3,8 @@ name: Production Pipeline
 on:
   push:
     branches: ["main"]
-    paths: ["apps", "libs", "package.json", "package-lock.json"]
+    paths-ignore:
+      - ".github/workflows/**"
 
   workflow_dispatch:
 
