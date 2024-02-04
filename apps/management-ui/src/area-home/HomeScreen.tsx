@@ -1,9 +1,7 @@
-import type { Route } from '@/routing'
-
 import { Link } from 'react-router-dom'
-import { l10n } from '@/l10n'
-import { PageTitle } from '@/layout'
-import { ROUTES } from '@/routing'
+import { l10n } from '@app/l10n'
+import { PageLayout } from '@app/layout'
+import { ROUTES, Route } from '@app/routing'
 
 function HomeLink({ to, label }: { to: Route; label: string }) {
   return (
@@ -17,24 +15,17 @@ function HomeLink({ to, label }: { to: Route; label: string }) {
 }
 
 export function HomeScreen() {
-  return (
-    <>
-      <PageTitle
-        title={l10n('app-area-home-intro-title', '<username>')}
-        disableGoBack
+  return <PageLayout title={l10n('app-area-home-intro-title', '<username>')}>
+    <div className="p-3 flex gap-3 justify-start">
+      <HomeLink
+        to={ROUTES.PRODUCTS.ROOT}
+        label={l10n('app-route-label-products')}
       />
 
-      <div className="p-3 flex gap-3 justify-center">
-        <HomeLink
-          to={ROUTES.PRODUCTS.ROOT}
-          label={l10n('app-route-label-products')}
-        />
-
-        <HomeLink
-          to={ROUTES.PRODUCTS.ROOT}
-          label={l10n('app-route-label-products')}
-        />
-      </div>
-    </>
-  )
+      <HomeLink
+        to={ROUTES.PRODUCTS.ROOT}
+        label={l10n('app-route-label-products')}
+      />
+    </div>
+  </PageLayout>;
 }

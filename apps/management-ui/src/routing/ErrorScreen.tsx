@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Icon } from '@/common'
+import { Icon } from '@app/content'
 
 export function ErrorScreen() {
   return (

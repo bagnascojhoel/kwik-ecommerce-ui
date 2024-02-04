@@ -1,8 +1,8 @@
 import type { RouteObject } from 'react-router-dom'
 
 import { createBrowserRouter } from 'react-router-dom'
-import { ProductScreen } from '../area-product'
-import { HomeScreen } from '../area-home'
+import { ProductScreen } from '@app/area-product'
+import { HomeScreen } from '@app/area-home'
 import { ROUTES } from './routes'
 import { ErrorScreen } from './ErrorScreen'
 

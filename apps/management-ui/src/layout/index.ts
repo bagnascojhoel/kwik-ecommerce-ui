@@ -1,2 +1,2 @@
 export * from './TopBar'
-export * from './PageTitle'
+export * from './PageLayout'

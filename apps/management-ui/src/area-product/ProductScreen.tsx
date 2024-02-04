@@ -1,11 +1,10 @@
-import { PageTitle } from '@/layout'
-import { l10n } from '@/l10n'
-import { Table } from '@/common'
+import { PageLayout } from '@app/layout'
+import { l10n } from '@app/l10n'
+import { Table } from '@app/content'
 
 export function ProductScreen() {
   return (
-    <>
-      <PageTitle title={l10n('app-area-product-intro-title')} />
+    <PageLayout title={l10n('app-area-product-intro-title')} >
       <Table
         hasRowHeader
         hasColumnHeader
@@ -14,7 +13,7 @@ export function ProductScreen() {
           { action: () => {}, icon: 'ri-activity-line', label: 'label' },
         ]}
       />
-    </>
+    </PageLayout>
   )
 }
 
