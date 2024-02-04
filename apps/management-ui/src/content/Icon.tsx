@@ -7,7 +7,7 @@ export type IconProps = {
 export function Icon({ icon, className }: IconProps) {
   return (
     <span
-      className={`${icon} flex justify-center items-center w-5 h-5 ${className}`}
+      className={`${icon} flex-inline justify-center items-center w-10 h-10  ${className}`}
     ></span>
   )
 }

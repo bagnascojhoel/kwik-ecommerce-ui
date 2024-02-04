@@ -3,10 +3,10 @@ import { Icon } from '@app/content'
 
 export function ErrorScreen() {
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex flex-col justify-center items-center h-screen">
       <div className="text-center">
-        <div className="text-4xl mb-8">
-          <Icon icon="ri-error-warning-line" />
+        <div className="text-4xl mb-8 text-center">
+          <Icon icon="ri-error-warning-line"/>
         </div>
         <h1 className="text-2xl mb-4">Oops! Something went wrong</h1>
         <p className="text-base mb-4">
