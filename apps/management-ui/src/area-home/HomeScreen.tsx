@@ -15,17 +15,19 @@ function HomeLink({ to, label }: { to: Route; label: string }) {
 }
 
 export function HomeScreen() {
-  return <PageLayout title={l10n('app-area-home-intro-title', '<username>')}>
-    <div className="p-3 flex gap-3 justify-start">
-      <HomeLink
-        to={ROUTES.PRODUCTS.ROOT}
-        label={l10n('app-route-label-products')}
-      />
+  return (
+    <PageLayout title={l10n('app-area-home-intro-title', '<username>')}>
+      <div className="p-3 flex gap-3 justify-start">
+        <HomeLink
+          to={ROUTES.PRODUCTS.ROOT}
+          label={l10n('app-route-label-products')}
+        />
 
-      <HomeLink
-        to={ROUTES.PRODUCTS.ROOT}
-        label={l10n('app-route-label-products')}
-      />
-    </div>
-  </PageLayout>;
+        <HomeLink
+          to={ROUTES.PRODUCTS.ROOT}
+          label={l10n('app-route-label-products')}
+        />
+      </div>
+    </PageLayout>
+  )
 }

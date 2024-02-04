@@ -5,6 +5,7 @@
   "app-title-area-home": "Kwik Ecommerce Manager",
 
   "app-route-label-products": "Product Management",
+  "app-component-table-actions-header": "Actions",
 
   "app-area-home-intro-title": "Welcome back, {}!",
   "app-area-product-intro-title": "Product Management"

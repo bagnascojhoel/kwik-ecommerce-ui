@@ -1,3 +1,2 @@
-export * from './IconButton'
 export * from './Icon'
-export * from './Table'
+export * from './Table/Table'

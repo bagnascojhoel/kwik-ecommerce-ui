@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { IconButton } from '@app/content'
+import { IconButton } from '@app/actions'
 
 export type PageTitleProps = {
   title: string

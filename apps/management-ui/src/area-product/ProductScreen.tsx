@@ -2,15 +2,30 @@ import { PageLayout } from '@app/layout'
 import { l10n } from '@app/l10n'
 import { Table } from '@app/content'
 
+// TODO: Add redux to trigger this actions and load
 export function ProductScreen() {
   return (
-    <PageLayout title={l10n('app-area-product-intro-title')} >
+    <PageLayout title={l10n('app-area-product-intro-title')}>
       <Table
-        hasRowHeader
+        isFirstRowHeader
         hasColumnHeader
-        data={PRODUCTS}
-        actions={[
-          { action: () => {}, icon: 'ri-activity-line', label: 'label' },
+        rows={PRODUCTS}
+        rowActionsBuilder={row => [
+          // TODO: Move these labels to l10n
+          {
+            callback: () => {
+              window.alert('edit: ' + row)
+            },
+            icon: 'ri-edit-2-line',
+            label: 'Edit',
+          },
+          {
+            callback: () => {
+              window.alert('delete: ' + row)
+            },
+            icon: 'ri-delete-bin-6-line',
+            label: 'Delete',
+          },
         ]}
       />
     </PageLayout>

@@ -6,15 +6,24 @@ export type IconProps = {
 // Check for more icons here https://remixicon.com/
 export function Icon({ icon, className }: IconProps) {
   return (
-    <span
-      className={`${icon} flex-inline justify-center items-center w-10 h-10  ${className}`}
-    ></span>
+    <div
+      className={`w-5 h-5 flex items-center justify-center p-4 ${className}`}
+    >
+      <span className={`${icon}`}></span>
+    </div>
   )
 }
 
 // Moved down because the list is immense
 // prettier-ignore
 export type RemixIcon =
+  | 'ri-edit-2-line'
+  | 'ri-delete-bin-6-line'
+  | 'ri-close-line'
+  | 'ri-more-2-line'
+  | 'ri-more-2-fill'
+  | 'ri-more-fill'
+  | 'ri-more-line'
   | 'ri-error-warning-line'
   | 'ri-activity-line'
   | 'ri-add-circle-line'
