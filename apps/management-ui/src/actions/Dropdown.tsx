@@ -31,20 +31,20 @@ export function Dropdown({ actions, children }: DropdownProps) {
 
       <ul
         className={`
-    bg-white
-      absolute
-      right-0
-      flex-col
-      z-10
-      border
-      radius
-      border-slate-100
-      shadow
-      ${isShown ? 'flex' : 'hidden'}
-    `}
+      bg-white
+        absolute
+        right-0
+        flex-col
+        z-10
+        border
+        radius
+        border-slate-100
+        shadow
+        ${isShown ? 'flex' : 'hidden'}
+      `}
       >
         {actions.map(action => (
-          <li>
+          <li key={action.label}>
             <button
               className="py-2 px-3 w-full flex flex-row gap-2 items-center radius hover:bg-slate-50"
               onClick={action.callback}

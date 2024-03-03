@@ -5,10 +5,12 @@ export function ErrorScreen() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="text-center">
-        <div className="text-4xl mb-8 text-center">
-          <Icon icon="ri-error-warning-line" />
+        <div className="flex flex-row justify-center text-center">
+          <div className="text-4xl mr-3">
+            <Icon icon="ri-error-warning-line" className="my-0 mx-auto" />
+          </div>
+          <h1 className="text-2xl mb-4">Oops! Something went wrong</h1>
         </div>
-        <h1 className="text-2xl mb-4">Oops! Something went wrong</h1>
         <p className="text-base mb-4">
           We're sorry, but it seems like there was an error processing your
           request.

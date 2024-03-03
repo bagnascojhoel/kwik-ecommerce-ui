@@ -1,0 +1,16 @@
+{
+  "api-product-state-shown": "Exibido",
+  "app-title-area-product": "Kwik - Gerenciamento de Produto",
+  "app-title-area-home": "Kwik Ecommerce",
+  "app-route-label-products": "Gerenciamento de Produtos",
+  "app-component-table-actions-header": "Ações",
+  "app-area-home-intro-title": "Bem-vindo novamente, {}!",
+  "app-area-product-intro-title": "Gerenciamento de Produto",
+  "app-form-label-product-name": "Nome do Produto",
+  "app-form-label-product-price": "Preço Unitário",
+  "app-form-label-product-category": "Categoria",
+  "app-form-action-product-create": "Criar Produto",
+  "app-form-product-category": "Categoria",
+  "app-form-product-price": "Preço",
+  "app-form-validation-required": "O campo é obrigatório"
+}
