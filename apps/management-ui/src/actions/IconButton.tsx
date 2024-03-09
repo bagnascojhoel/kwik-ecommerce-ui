@@ -1,9 +1,7 @@
-import type { RemixIcon } from '../content/Icon'
-
-import { Icon } from '../content/Icon'
+import { Icon, IconCode } from '../content/Icon'
 
 export interface IconButtonProps {
-  icon: RemixIcon
+  icon: IconCode
   className?: string
   action: () => void
 }

@@ -29,10 +29,13 @@ export function DecimalInput({
 
           <input
             type="number"
+            inputMode="decimal"
             placeholder={placeholder}
             autoComplete={autocomplete}
             min={min}
-            className={`border rounded p-2 ${errors[name] && 'border-red-600'}`}
+            className={`max-w-40 border rounded p-2 mb-2 outline-orange-300 ${
+              errors[name] && 'border-red-600'
+            }`}
             {...field}
           />
 

@@ -1,5 +1,5 @@
 export type IconProps = {
-  icon: RemixIcon
+  icon: IconCode
   className?: string
 }
 
@@ -14,9 +14,13 @@ export function Icon({ icon, className }: IconProps) {
   )
 }
 
+export type IconCode = RemixIcon
 // Moved down because the list is immense
 // prettier-ignore
-export type RemixIcon =
+type RemixIcon =
+  | 'ri-add-circle-line'
+  | 'ri-file-list-3-line'
+  | 'ri-file-list-2-fill'
   | 'ri-edit-2-line'
   | 'ri-delete-bin-6-line'
   | 'ri-close-line'

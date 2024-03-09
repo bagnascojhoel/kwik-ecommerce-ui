@@ -21,7 +21,8 @@ export function TextInput({ name, label, autocomplete, type }: TextInputProps) {
           </label>
           <input
             type={type}
-            className={`border rounded p-2 mb-2 ${
+            inputMode="text"
+            className={`max-w-72 border rounded p-2 mb-2 outline-orange-300 ${
               errors[name] && 'border-red-600'
             }`}
             data-form-type={formType}

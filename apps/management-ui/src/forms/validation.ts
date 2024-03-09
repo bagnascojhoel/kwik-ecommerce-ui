@@ -5,6 +5,11 @@ import { l10n } from '@app/l10n'
 yup.setLocale({
   mixed: {
     required: l10n('app-form-validation-required'),
+    oneOf: l10n('app-form-validation-one-of'),
+  },
+  number: {
+    negative: l10n('app-form-validation-number-negative'),
+    positive: l10n('app-form-validation-number-positive'),
   },
 })
 

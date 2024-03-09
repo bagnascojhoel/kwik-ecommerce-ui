@@ -1,8 +1,9 @@
 import { Form, TextInput, validation, DecimalInput, Button } from '@app/forms'
 import { l10n } from '@app/l10n'
+import { Title } from '@app/content'
 import { PRODUCT_CATEGORIES } from '@app/state'
 
-export function ProductForm() {
+export function ProductForm({ className }: { className?: string }) {
   const initialValues = {
     name: '',
     price: 0,
@@ -36,7 +37,11 @@ export function ProductForm() {
       }
       validationSchema={validationSchema}
     >
-      <div className="w-full ml-12">
+      <div className={className}>
+        <Title icon="ri-add-circle-line" size="lg">
+          {l10n('app-area-product-form-creation-title')}
+        </Title>
+
         <TextInput
           name="name"
           label={l10n('app-form-label-product-name')}

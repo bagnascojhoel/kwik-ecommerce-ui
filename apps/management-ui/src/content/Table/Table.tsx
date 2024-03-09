@@ -5,14 +5,15 @@ import { TableRow } from './TableRow'
 import { TableRowActionsBuilder } from './ActionsCell'
 
 export type TableProps = {
+  className?: string
   rows: string[][]
-  headerClassName?: string
   rowActionsBuilder?: TableRowActionsBuilder
   hasColumnHeader?: boolean
   isFirstRowHeader?: boolean
 }
 
 export function Table({
+  className,
   rowActionsBuilder: actionsBuilder = undefined,
   hasColumnHeader = false,
   isFirstRowHeader = false,
@@ -58,7 +59,7 @@ export function Table({
 
   return (
     <div
-      className={`max-w-[${tableContainerWidth}px] flex`}
+      className={`max-w-[${tableContainerWidth}px] flex ${className}`}
       ref={tableContainerRef}
     >
       <div

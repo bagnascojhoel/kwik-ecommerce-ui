@@ -8,5 +8,6 @@
   "app-area-product-intro-title": "Product Management",
   "app-area-product-form-product-name": "Name",
   "app-area-product-form-product-category": "Category",
-  "app-area-product-form-product-price": "Price"
+  "app-area-product-form-product-price": "Price",
+  "app-area-product-form-creation-title": "Create Product"
 }
