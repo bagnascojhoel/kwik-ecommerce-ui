@@ -9,6 +9,7 @@ export type DecimalInputProps = {
   min?: integer
 } & Exclude<FieldConfig, 'type'>
 
+// TODO: Improve user experience with decimals
 export function DecimalInput({
   label,
   placeholder,
@@ -39,7 +40,7 @@ export function DecimalInput({
             {...field}
           />
 
-          <span>
+          <span className="text-red-600">
             <ErrorMessage name={name} />
           </span>
         </div>

@@ -1,6 +1,6 @@
 import { Form, TextInput, validation, DecimalInput, Button } from '@app/forms'
 import { l10n } from '@app/l10n'
-import { Title } from '@app/content'
+import { Card } from '@app/content'
 import { PRODUCT_CATEGORIES } from '@app/state'
 
 export function ProductForm({ className }: { className?: string }) {
@@ -37,11 +37,11 @@ export function ProductForm({ className }: { className?: string }) {
       }
       validationSchema={validationSchema}
     >
-      <div className={className}>
-        <Title icon="ri-add-circle-line" size="lg">
-          {l10n('app-area-product-form-creation-title')}
-        </Title>
-
+      <Card
+        containerClassName={className}
+        title={l10n('app-area-product-form-creation-title')}
+        icon="ri-add-circle-line"
+      >
         <TextInput
           name="name"
           label={l10n('app-form-label-product-name')}
@@ -63,7 +63,7 @@ export function ProductForm({ className }: { className?: string }) {
           action="submit"
           label={l10n('app-form-action-product-create')}
         />
-      </div>
+      </Card>
     </Form>
   )
 }
