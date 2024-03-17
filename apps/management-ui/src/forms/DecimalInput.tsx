@@ -1,4 +1,4 @@
-import { Field, ErrorMessage, FieldConfig, FieldProps } from 'formik'
+import { ErrorMessage, FieldConfig, useField } from 'formik'
 import { integer } from '@app/utilities'
 
 export type DecimalInputProps = {
@@ -17,34 +17,28 @@ export function DecimalInput({
   autocomplete,
   min,
 }: DecimalInputProps) {
+  const [field, { error, touched }] = useField(name)
   return (
-    <Field
-      name={name}
-      type="number"
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      component={({ field, form: { errors } }: FieldProps<any, any>) => (
-        <div className="flex flex-col mb-5">
-          <label htmlFor={name} className="mb-1">
-            {label}
-          </label>
+    <div className="flex flex-col mb-5">
+      <label htmlFor={name} className="mb-1">
+        {label}
+      </label>
 
-          <input
-            type="number"
-            inputMode="decimal"
-            placeholder={placeholder}
-            autoComplete={autocomplete}
-            min={min}
-            className={`max-w-40 border rounded p-2 mb-2 outline-orange-300 ${
-              errors[name] && 'border-red-600'
-            }`}
-            {...field}
-          />
+      <input
+        type="number"
+        inputMode="decimal"
+        placeholder={placeholder}
+        autoComplete={autocomplete}
+        min={min}
+        className={`max-w-40 border rounded p-2 mb-2 outline-orange-300 ${
+          touched && error && 'border-red-600'
+        }`}
+        {...field}
+      />
 
-          <span className="text-red-600">
-            <ErrorMessage name={name} />
-          </span>
-        </div>
-      )}
-    />
+      <span className="text-red-600">
+        <ErrorMessage name={name} />
+      </span>
+    </div>
   )
 }
